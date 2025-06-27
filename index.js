@@ -4,13 +4,7 @@ import express from "express";
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "https://cdchat.netlify.app",
-    methods: ["GET", "POST"],
-    credentials: true
-  }
-});
+const io = new Server(server);
 app.use(express.static("public"));
 
 const users = {};
