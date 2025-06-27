@@ -11,7 +11,7 @@ const io = new Server(server, {
     credentials: true
   }
 });
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 const users = {};
 
