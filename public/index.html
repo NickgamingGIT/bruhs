@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="joinscreen">
+            <input id="username" type="text">
+            <button id="join" onclick="join();">Join</button>
+        </div>
+        <div id="chatscreen" style="visibility: hidden;">
+            <div id="chat" style="overflow: scroll;"></div>
+            <input id="input" type="text">
+            <button id="send">Send</button>
+        </div>
+        <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>
