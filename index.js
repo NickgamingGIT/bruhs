@@ -1,6 +1,5 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { setupMediasoup } from "./mediasoup-setup.js";
 
 const server = createServer();
 const io = new Server(server, {
@@ -29,8 +28,6 @@ io.on("connection", socket => {
   });
 });
 
-setupMediasoup(io).then(() => {
-  server.listen(3000, () => {
-    console.log("Server running on port 3000 with chat + voice");
-  });
+server.listen(3000, () => {
+  console.log("Server running on port 3000 with chat + voice");
 });
