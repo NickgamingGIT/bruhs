@@ -4,7 +4,7 @@ import { Server } from "socket.io";
 const server = createServer();
 const io = new Server(server, {
   cors: {
-    origin: "https://cdchat.netlify.app/",
+    origin: "https://cdchat.netlify.app",
     methods: ["GET", "POST"]
   }
 });
@@ -17,17 +17,15 @@ io.on("connection", socket => {
     io.emit("join", { username, id: socket.id });
     io.emit("message", `${username} has joined`);
   });
-
   socket.on("message", message => {
     io.emit("message", `${users[socket.id]}: ${message}`);
   });
-
   socket.on("disconnect", () => {
     io.emit("message", `${users[socket.id]} has left`);
     delete users[socket.id];
   });
 });
 
-server.listen(3000, () => {
-  console.log("Server running on port 3000 with chat + voice");
+server.listen(3000, "0.0.0.0", () => {
+  console.log("server started ig");
 });
