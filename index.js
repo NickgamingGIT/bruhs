@@ -1,11 +1,13 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import express from "express";
 
-const app = express();
-const server = createServer(app);
-const io = new Server(server);
-app.use(express.static("public"));
+const server = createServer();
+const io = new Server(server, {
+  cors: {
+    origin: "https://cdchat.netlify.app",
+    methods: ["GET", "POST"]
+  }
+});
 
 const users = {};
 
